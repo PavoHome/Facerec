@@ -49,7 +49,7 @@ def generate_frames():
 
             # Detect faces
             face_locations = face_recognition.face_locations(rgb_frame)
-            face_encodings = face_recognition.face_encodings(rgb_frame, face_locations)
+            face_encodings = face_recognition.face_encodings(rgb_frame, known_face_locations=face_locations)
 
             for (top, right, bottom, left), encoding in zip(face_locations, face_encodings):
                 matches = face_recognition.compare_faces(known_encodings, encoding)
